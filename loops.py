@@ -1,36 +1,46 @@
-def index_of_by_index(word, list, index):
-    last_index = -1
-    if word in list[index:]:
-        last_index = index + list[index:].index(word)
-    return last_index
-
-
-def index_of_empty(list):
-    if "" in list:
-        return list.index("") # es literalmente lo que hace el metodo ".index" 
+def index_of_by_index(word, my_list, index):
+    i=index
+    while i < len(my_list):
+        if my_list[i]==word:
+            return i
+        i+=1
     return -1
 
 
-def index_of(word, list):
-    index = -1
-    if word in list:
-        index = list.index(word)
-    return index
+def index_of_empty(my_list):
+    i=0
+    while i < len(my_list):
+        if my_list[i] == "":
+            return i
+        i += 1
+    return -1
 
 
+def index_of(word, my_list):
+    i=0
+    while i < len(my_list):
+        if my_list[i]==word:
+            return i 
+        i+=1
+    return -1
 
-def put(word, list):
-    empty_i = index_of_empty(list)
-    if empty_i != -1:
-        list[empty_i] = word    
-    
-    return empty_i
+
+def put(word, my_list):
+    i=0
+    while i < len(my_list):
+        if my_list[i]=="":
+            my_list[i]= word
+            return i
+        i+=1
+    return -1
 
 
-def remove(word, list):
-    rems = 0
-    for item in list:
-        if item == word:
-            rems += 1
-            list[list.index(word)] = "" 
-    return rems
+def remove(word, my_list):
+    i=0
+    count=0
+    while i < len(my_list):
+        if my_list[i]==word:
+            my_list[i]=""
+            count+=1
+        i+=1
+    return count
